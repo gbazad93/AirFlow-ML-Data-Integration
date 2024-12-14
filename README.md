@@ -58,7 +58,8 @@ Contributions are welcome and appreciated! To contribute to this project, please
    - If you are adding new features, include tests or update existing tests to maintain coverage and confirm that your additions work as intended.
 
 4. **Run Tests:**
-   # Example test command
+
+   Example test command
    ```bash
    pytest tests/
    ```
