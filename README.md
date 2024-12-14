@@ -15,3 +15,6 @@ This project demonstrates how to use [Apache Airflow](https://airflow.apache.org
 - [Extending the Pipeline](#extending-the-pipeline)
 - [Contributing](#contributing)
 
+## Overview
+This repository offers a sample Airflow project integrating a daily weather data fetch from OpenWeather’s free API into a PostgreSQL database. The data is cleaned, validated, and ready for further downstream tasks, such as ML model training or dashboard visualization.
+
