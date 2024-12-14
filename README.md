@@ -24,3 +24,18 @@ This repository offers a sample Airflow project integrating a daily weather data
 - **Modular Design:** Separate files for DAGs, database connection, and data processing.
 - **Easily Extensible:** Add more cities, transformations, or ML tasks as needed.
 
+## Architecture
+```plaintext
+         ┌─────────────────┐        ┌─────────────────┐
+         │                 │        │                 │
+         │ OpenWeather API │        │   Airflow DAG   │
+         │                 │        │ (weather_pipeline)
+         └───────┬────────┘        │                 │
+                 │ (Fetch JSON)     └───────┬────────┘
+                 │ (Cleanup & Transform)     │
+                 v                           │ (Insert into)
+         ┌─────────────────┐       ┌────────v────────┐
+         │                 │       │                 │
+         │ PostgreSQL DB   │<──────┤ DatabaseEngine  │
+         │                 │       │                 │
+         └─────────────────┘       └─────────────────┘
