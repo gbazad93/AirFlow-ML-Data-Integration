@@ -65,23 +65,23 @@ Contributions are welcome and appreciated! To contribute to this project, please
    ```
    Make sure all tests pass and there are no regressions.
 
-6. **Commit Your Changes:**
+5. **Commit Your Changes:**
    ```bash
    git add .
    git commit -m "Add your commit message here"
    ```
    Write clear and concise commit messages that explain what your changes do.
 
-8. **Push and Open a Pull Request:**
+6. **Push and Open a Pull Request:**
    ```bash
    git push origin feature/your-feature-name
    ```
    Go to your forked repository on GitHub and open a Pull Request (PR) against the main branch of this repository. Describe your changes, why they’re needed, and how to test them.
 
-10. **Code Review and Feedback:**
+7. **Code Review and Feedback:**
    - Be open to feedback and make the requested changes where applicable.
 
-11. **Merge:**
+8. **Merge:**
    Once your PR is approved, it will be merged into the main branch.
 
 **Note:** If you’re unsure about any aspect of your contribution or would like to propose an idea before coding, feel free to open an issue first. Constructive discussion helps ensure we move in a direction that benefits the entire community.
