@@ -26,19 +26,31 @@ This repository offers a sample Airflow project integrating a daily weather data
 
 ## Architecture
 ```plaintext
-         ┌─────────────────┐        ┌─────────────────┐
-         │                 │        │                 │
-         │ OpenWeather API │        │   Airflow DAG   │
-         │                 │        │ (weather_pipeline)
-         └───────┬────────┘        │                 │
-                 │ (Fetch JSON)     └───────┬────────┘
-                 │ (Cleanup & Transform)     │
-                 v                           │ (Insert into)
-         ┌─────────────────┐       ┌────────v────────┐
-         │                 │       │                 │
-         │ PostgreSQL DB   │<──────┤ DatabaseEngine  │
-         │                 │       │                 │
-         └─────────────────┘       └─────────────────┘
+┌─────────────────┐
+│ OpenWeather API │
+└──────┬──────────┘
+       │ (Fetch JSON)
+       v
+┌───────────────────┐
+│   Airflow DAG     │
+│ (weather_pipeline)│
+└──────┬────────────┘
+       │ (Cleanup & Transform)
+       v
+┌─────────────────┐
+│ DataProcessor   │
+└──────┬──────────┘
+       │ (Insert into DB)
+       v
+┌─────────────────┐
+│ DatabaseEngine  │
+└──────┬──────────┘
+       │ (SQLAlchemy engine)
+       v
+┌─────────────────┐
+│ PostgreSQL DB   │
+└─────────────────┘
+
 ```
 
 ## Contributing
