@@ -18,3 +18,9 @@ This project demonstrates how to use [Apache Airflow](https://airflow.apache.org
 ## Overview
 This repository offers a sample Airflow project integrating a daily weather data fetch from OpenWeather’s free API into a PostgreSQL database. The data is cleaned, validated, and ready for further downstream tasks, such as ML model training or dashboard visualization.
 
+## Features
+- **Automated Orchestration:** Daily scheduled runs controlled by Airflow.
+- **Data Cleaning & Validation:** Ensures consistent, reliable data for analysis.
+- **Modular Design:** Separate files for DAGs, database connection, and data processing.
+- **Easily Extensible:** Add more cities, transformations, or ML tasks as needed.
+
