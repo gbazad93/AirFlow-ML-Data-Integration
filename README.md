@@ -52,6 +52,16 @@ This repository offers a sample Airflow project integrating a daily weather data
 └─────────────────┘
 
 ```
+## Setup Instructions
+
+To set up the project, please follow the instructions in the **Setup** folder. The folder includes detailed steps for various configurations:
+
+- **[Airflow Setup](./Setup/Airflow-Setup.md):**  
+  Step-by-step instructions for installing and configuring Apache Airflow.
+
+- **[Database Setup](./Setup/Database-Setup.md):**  
+  Guide for setting up the PostgreSQL database, including creating schemas and tables.
+
 
 ## Contributing
 
