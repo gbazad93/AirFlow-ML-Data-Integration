@@ -62,6 +62,23 @@ To set up the project, please follow the instructions in the **Setup** folder. T
 - **[Database Setup](./Setup/Database-Setup.md):**  
   Guide for setting up the PostgreSQL database, including creating schemas and tables.
 
+## Project Structure
+
+The repository is organized as follows:
+
+```plaintext
+AirFlow-ML-Data-Integration/
+├── dags/                       # Airflow DAGs for ETL orchestration
+├── data_processing/            # Scripts for cleaning and transforming data
+├── database_engine/            # Database connection and query helpers
+├── Setup/                      # Setup instructions (Airflow, database, etc.)
+│   ├── Airflow-Setup.md        # Airflow setup steps
+│   ├── Database-Setup.md       # Database setup steps
+├── tests/                      # Unit tests for the pipeline
+├── README.md                   # Main project readme
+└── requirements.txt            # Python dependencies
+```
+
 
 ## Contributing
 
