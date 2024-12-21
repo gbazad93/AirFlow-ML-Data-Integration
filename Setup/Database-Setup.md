@@ -92,3 +92,5 @@ To verify the table creation, you can run:
 - The `weather_data` database stores weather-related information such as city, date, temperature, humidity, wind speed, and conditions. This data is ready for downstream tasks like machine learning model training or visualizations.
 - Use strong passwords for database users to ensure security.
 - The `created_at` column in the `weather` table automatically records the timestamp when a new row is added.
+- When using the `\d weather` command in the PostgreSQL CLI, if the output ends with `(END)` and you cannot type, press **`q`** to exit the pager and return to the `psql` prompt.
+
