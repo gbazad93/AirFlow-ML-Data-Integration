@@ -62,6 +62,13 @@ To set up the project, please follow the instructions in the **Setup** folder. T
 - **[Database Setup](./Setup/Database-Setup.md):**  
   Guide for setting up the PostgreSQL database, including creating schemas and tables.
 
+- **[Folder Setup](./Setup/Folders-Setup.md):**  
+  Instructions for verifying and setting up the required folder structure for your Airflow project.
+
+- **[IDE Setup](./Setup/IDE-Setup.md):**  
+  Guide for installing and configuring Visual Studio Code (or another IDE) for developing Airflow DAGs and helper scripts.
+
+
 ## Project Structure
 
 The repository is organized as follows:
