@@ -94,3 +94,77 @@ To verify the table creation, you can run:
 - The `created_at` column in the `weather` table automatically records the timestamp when a new row is added.
 - When using the `\d weather` command in the PostgreSQL CLI, if the output ends with `(END)` and you cannot type, press **`q`** to exit the pager and return to the `psql` prompt.
 
+
+---
+
+## Optional: Using pgAdmin 4 for PostgreSQL Management
+
+pgAdmin 4 is a powerful and user-friendly GUI for managing PostgreSQL databases. While using the PostgreSQL CLI is sufficient, pgAdmin provides a visual interface that can make managing databases more convenient. Follow these steps to install, configure, and use pgAdmin to connect to your database and view table content.
+
+### Install pgAdmin 4
+
+To install pgAdmin 4 on Ubuntu:
+
+```
+sudo apt update
+sudo apt install -y pgadmin4
+```
+
+### Open pgAdmin 4
+
+You can open pgAdmin 4 in two ways:
+
+1. **Through Terminal**:
+   - Launch pgAdmin by running:
+     ```
+     pgadmin4
+     ```
+   - It will open in your default web browser. If it doesn’t open automatically, navigate to:
+     ```
+     http://127.0.0.1:5050
+     ```
+
+2. **Through System Search**:
+   - Press the **Super Key** (Windows key) and type **pgAdmin** in the search bar.
+   - Click on the **pgAdmin 4** application icon to open it.
+
+On the first run, you will be prompted to set up an email address and password to access pgAdmin.
+
+### Connect to the PostgreSQL Database
+
+1. Once pgAdmin is open, right-click **Servers** and select **Register > Server**.
+2. In the **General** tab:
+   - Enter a name for your server (e.g., "weather_data").
+3. In the **Connection** tab:
+   - **Host name/address**: `localhost` (or the server's IP address if remote).
+   - **Port**: `5432` (default PostgreSQL port).
+   - **Maintenance database**: `weather_data`.
+   - **Username**: `airflow_user`.
+   - **Password**: Enter the password set for `airflow_user`.
+   - Save the connection details.
+
+   ![Connection Information Screenshot](https://github.com/gbazad93/AirFlow-ML-Data-Integration/raw/main/Setup/Screenshots/RegisterServer.png)
+
+4. Click **Save** to connect to the database.
+
+### View Table Content
+
+To view the content of your table in pgAdmin 4, you have two options:
+
+#### Option 1: Using the Schema Browser
+1. In the left-hand menu, expand **Servers > weather_data > Schemas > public > Tables**.
+2. Click on the `weather` table to highlight it.
+3. Right-click the `weather` table and select **View/Edit Data > All Rows** to view its contents directly.
+
+#### Option 2: Using the Query Tool
+1. In the left-hand menu, expand **Servers > weather_data > Schemas > public > Tables**.
+2. Right-click the `weather` table and select **Query Tool**.
+3. In the query editor, type the following query to view the table's content:
+   ```
+   SELECT * FROM weather;
+   ```
+4. Click the **Execute/Run** button (lightning bolt icon) to execute the query and see the results.
+
+ ![Query Result Screenshot](https://github.com/gbazad93/AirFlow-ML-Data-Integration/raw/main/Setup/Screenshots/TableContent.png)
+
+
