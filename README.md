@@ -54,7 +54,7 @@ This repository offers a sample Airflow project integrating a daily weather data
 ```
 ## Setup Instructions
 
-To set up the project, please follow the instructions in the **Setup** folder. The folder includes detailed steps for various configurations:
+To set up the project, please follow the instructions in the **Setup** folder in the following order listed below.
 
 - **[Airflow Setup](./Setup/Airflow-Setup.md):**  
   Step-by-step instructions for installing and configuring Apache Airflow.
@@ -68,6 +68,8 @@ To set up the project, please follow the instructions in the **Setup** folder. T
 - **[IDE Setup](./Setup/IDE-Setup.md):**  
   Guide for installing and configuring Visual Studio Code (or another IDE) for developing Airflow DAGs and helper scripts.
 
+- **[Airflow Connection Setup](./Setup/Airflow-ConnectionSetup.md):**  
+  Detailed steps for securely setting up database connections within Airflow.
 
 ## Project Structure
 
