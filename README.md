@@ -71,6 +71,9 @@ To set up the project, please follow the instructions in the **Setup** folder in
 - **[Airflow Connection Setup](./Setup/Airflow-ConnectionSetup.md):**  
   Detailed steps for securely setting up database connections within Airflow.
 
+- **[API Connection Setup](./Setup/API-Connection-Setup.md):**  
+  Instructions for obtaining an OpenWeather API key and securely adding it as an Airflow connection.
+
 ## Project Structure
 
 The repository is organized as follows:
