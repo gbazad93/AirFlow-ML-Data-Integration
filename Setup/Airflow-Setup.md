@@ -92,5 +92,32 @@ source ~/airflow_env/bin/activate
 # Ensure the AIRFLOW_HOME variable is set each time:
 export AIRFLOW_HOME=~/airflow
 ```
+---
+### Disable Sample DAGs Without Deleting Files (Optional)
+
+If you don’t want to see the example DAGs provided by Airflow, you can disable them:
+
+1. Open the `airflow.cfg` configuration file. Typically, it is located in the `$AIRFLOW_HOME` directory:
+   ```bash
+   nano $AIRFLOW_HOME/airflow.cfg
+   ```
+
+2. Find the following line:
+   ```text
+   load_examples = True
+   ```
+
+3. Change it to:
+   ```text
+   load_examples = False
+   ```
+
+4. Save the file and exit.
+
+5. Restart the Airflow services to apply the changes:
+   ```bash
+   airflow scheduler
+   airflow webserver
+   ```
 
 
