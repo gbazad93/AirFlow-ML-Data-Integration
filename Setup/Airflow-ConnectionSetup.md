@@ -40,21 +40,39 @@ You can now access the Airflow UI at [http://localhost:8080](http://localhost:80
 
 ---
 
-### 3. Create a Database Connection in the Airflow UI
-1. Open your browser and navigate to the Airflow UI (e.g., [http://localhost:8080](http://localhost:8080)).
-2. Log in using your Airflow admin credentials.
-3. Go to **Admin → Connections**.
-4. Click the **plus (+)** button to create a new connection.
-5. Fill out the connection details as follows:
-   - **Conn Id**: A descriptive name (`postgres_weather_db`).
-   - **Conn Type**: Select the database type (`Postgres` for PostgreSQL).
-   - **Host**: Enter your database host (`localhost` or the actual host).
-   - **Schema**: Enter your database name (`weather_data`).
-   - **Login**: Enter your database user (`airflow_user`).
-   - **Password**: Enter your database user’s password (e.g., `secure_password`).
-   - **Port**: Default is `5432` for PostgreSQL.
+### Create a Database Connection in the Airflow UI
 
-6. Click **Save** to store the connection securely in Airflow.
+1. **Access the Airflow UI**:  
+   Open your browser and navigate to the Airflow UI (e.g., `http://localhost:8080`).
+
+2. **Log In**:  
+   Use your Airflow admin credentials to log in.
+
+3. **Navigate to Connections**:  
+   Go to **Admin → Connections**.
+
+4. **Create a New Connection**:  
+   Click the plus (+) button to create a new connection.
+
+5. **Install Postgres Provider (if needed)**:  
+   If you do not see "Postgres" in the `Conn Type` dropdown, install the Postgres provider package:
+   ```bash
+   pip install apache-airflow-providers-postgres
+   ```
+Then restart both the scheduler and the webserver, and retry creating the connection.
+
+6. **Fill Out the Connection Details**:  
+   Enter the following information:
+   - **Conn Id**: A descriptive name (e.g., `postgres_weather_db`).
+   - **Conn Type**: Select `Postgres` (if using PostgreSQL).
+   - **Host**: Enter your database host (e.g., `localhost` or a server hostname).
+   - **Schema**: Enter your database name (e.g., `weather_data`).
+   - **Login**: Enter your database user (e.g., `airflow_user`).
+   - **Password**: Enter your database user’s password (e.g., `secure_password`).
+   - **Port**: Typically `5432` for PostgreSQL.
+
+7. **Save the Connection**:  
+   Click **Save** to securely store the connection in Airflow.
 
 ---
 
