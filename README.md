@@ -68,7 +68,7 @@ To set up the project, please follow the instructions in the **Setup** folder in
 - **[IDE Setup](./Setup/IDE-Setup.md):**  
   Guide for installing and configuring Visual Studio Code (or another IDE) for developing Airflow DAGs and helper scripts.
 
-- **[Airflow Connection Setup](./Setup/Airflow-ConnectionSetup.md):**  
+- **[Airflow Database Connection Setup](./Setup/Airflow-Database-ConnectionSetup.md):**  
   Detailed steps for securely setting up database connections within Airflow.
 
 - **[API Connection Setup](./Setup/API-Connection-Setup.md):**  
