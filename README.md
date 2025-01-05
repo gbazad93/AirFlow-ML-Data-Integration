@@ -29,11 +29,11 @@ To run this project:
 
 Below are some screenshots showcasing the Airflow UI and the `weather_data_pipeline` DAG in action. These visuals provide an overview of how the pipeline is orchestrated within Apache Airflow.
 
-| **Airflow Dashboard**                                      | **Pipeline Execution Detail**                           |
-|------------------------------------------------------------|---------------------------------------------------------|
-| ![AirFlow01](./Setup/Screenshots/AirFlow01.png)            | ![AirFlow02](./Setup/Screenshots/AirFlow02.png)         |
-| **Pipeline Graph View**                                    | **Pipeline XCom**                                       |
-| ![AirFlow03](./Setup/Screenshots/AirFlow03.png)            | ![AirFlow04](./Setup/Screenshots/AirFlow04.png)         |
+| **Airflow Dashboard**                                            | **Pipeline Execution Detail**                                   |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![AirFlow_Dashboard](./Setup/Screenshots/AirFlow_Dashboard.png)  | ![AirFlow_Execution](./Setup/Screenshots/AirFlow_Execution.png) |
+| **Pipeline Graph View**                                          | **Pipeline XCom**                                               |
+| ![AirFlow_Graph](./Setup/Screenshots/AirFlow_Graph.png)          | ![AirFlow_XCom](./Setup/Screenshots/AirFlow_XCom.png)           |
 
 ### Screenshot Descriptions:
 1. **Airflow Dashboard (AirFlow01)**: Displays the main Airflow UI with an active `weather_data_pipeline` DAG.
