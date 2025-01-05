@@ -25,6 +25,24 @@ To run this project:
 2. Download or clone the DAG and related codes in the exact same structure as described in the **Project Structure** section.
 3. Use the Airflow UI to trigger and monitor the pipeline execution.
 
+## Screenshots
+
+Below are some screenshots showcasing the Airflow UI and the `weather_data_pipeline` DAG in action. These visuals provide an overview of how the pipeline is orchestrated within Apache Airflow.
+
+| **Airflow Dashboard**                                      | **Pipeline Execution Detail**                           |
+|------------------------------------------------------------|---------------------------------------------------------|
+| ![AirFlow01](./Setup/Screenshots/AirFlow01.png)            | ![AirFlow02](./Setup/Screenshots/AirFlow02.png)         |
+| **Pipeline Graph View**                                    | **Pipeline XCom**                                       |
+| ![AirFlow03](./Setup/Screenshots/AirFlow03.png)            | ![AirFlow04](./Setup/Screenshots/AirFlow04.png)         |
+
+### Screenshot Descriptions:
+1. **Airflow Dashboard (AirFlow01)**: Displays the main Airflow UI with an active `weather_data_pipeline` DAG.
+2. **Pipeline Execution Logs (AirFlow02)**: Showcases task logs and data retrieved from the OpenWeather API.
+3. **Pipeline Graph View (AirFlow03)**: Visualizes the flow of tasks in the pipeline, including `load_locations`, `fetch_weather_data`, and `insert_weather_data`.
+4. **Pipeline DAG Details (AirFlow04)**: Summarizes DAG execution details such as run duration, task statuses, and DAG configuration.
+
+---
+
 ## Features
 - **Automated Orchestration:** Daily scheduled runs controlled by Airflow.
 - **Data Cleaning & Validation:** Ensures consistent, reliable data for analysis.
