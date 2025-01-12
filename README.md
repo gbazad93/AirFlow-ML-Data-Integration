@@ -5,15 +5,19 @@ This project demonstrates how to use [Apache Airflow](https://airflow.apache.org
 
 ## Table of Contents
 - [Overview](#overview)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Architecture](#architecture)
 - [Setup Instructions](#setup-instructions)
+  - [Airflow Setup](./Setup/Airflow-Setup.md)
+  - [Database Setup](./Setup/Database-Setup.md)
+  - [Folder Setup](./Setup/Folders-Setup.md)
+  - [IDE Setup](./Setup/IDE-Setup.md)
+  - [Airflow Database Connection Setup](./Setup/Airflow-Database-ConnectionSetup.md)
+  - [API Connection Setup](./Setup/API-Connection-Setup.md)
 - [Project Structure](#project-structure)
-- [Airflow DAGs](#airflow-dags)
-- [Database Engine](#database-engine)
-- [Data Processing Helpers](#data-processing-helpers)
-- [Extending the Pipeline](#extending-the-pipeline)
 - [Contributing](#contributing)
+
 
 ## Overview
 
