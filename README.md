@@ -83,6 +83,11 @@ Below are some screenshots showcasing the Airflow UI and the `weather_data_pipel
 ```
 ## Setup Instructions
 
+**Important:**  
+Apache Airflow is **not fully supported on Windows**. It is recommended to run Airflow on a Linux-based system.  
+- If you're using Windows, you can install and run Airflow using the **Windows Subsystem for Linux (WSL)** feature.  
+- Alternatively, you can use a **Linux virtual machine (VM)** or **Docker** for running Airflow on Windows.
+
 To set up the project, please follow the instructions in the **Setup** folder in the following order listed below.
 
 - **[Airflow Setup](./Setup/Airflow-Setup.md):**  
