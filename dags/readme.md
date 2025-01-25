@@ -66,9 +66,3 @@ The `insert_weather_data` task inserts the fetched weather data into the Postgre
 
 ---
 
-## Future Improvements
-
-- Add error handling for database connection failures.
-- Extend support for more API providers.
-- Schedule regular pipeline runs to maintain up-to-date weather data.
-
