@@ -91,7 +91,7 @@ Below are some screenshots showcasing the Airflow UI and the `weather_data_pipel
 ```
 ## Setup Instructions
 
-**Important:**  
+**⚠️ Important:**  
 Apache Airflow is **not fully supported on Windows**. It is recommended to run Airflow on a Linux-based system.  
 - If you're using Windows, you can install and run Airflow using the **Windows Subsystem for Linux (WSL)** feature.  
 - Alternatively, you can use a **Linux virtual machine (VM)** or **Docker** for running Airflow on Windows.
@@ -118,21 +118,28 @@ To set up the project, please follow the instructions in the **Setup** folder in
 
 ## Project Structure
 
-The repository is organized as follows:
+The following structure represents how the project should be organized on your local machine where the Airflow pipeline is running. It includes essential folders and files required for executing the ETL pipeline, managing logs, and configuring Airflow. Files related to repository setup and documentation (such as setup guides) are not included here.
 
 ```plaintext
-AirFlow-ML-Data-Integration/
-├── dags/                       # Airflow DAGs for ETL orchestration
-├── data_processing/            # Scripts for cleaning and transforming data
-├── database_engine/            # Database connection and query helpers
-├── Setup/                      # Setup instructions (Airflow, database, etc.)
-│   ├── Airflow-Setup.md        # Airflow setup steps
-│   ├── Database-Setup.md       # Database setup steps
-├── tests/                      # Unit tests for the pipeline
-├── README.md                   # Main project readme
-└── requirements.txt            # Python dependencies
+AIRFLOW/
+├── dags/                        # Airflow DAGs for ETL orchestration
+│   ├── data/                     # Directory for data-related files
+│   │   └── locations.csv          # CSV file containing city location data
+│   └── ML_Data_ETL_dag.py         # Main Airflow DAG script
+│
+├── logs/                         # Airflow logs for debugging and tracking
+│   ├── dag_id=weather_data_pipeline  # Logs for specific DAG execution
+│   ├── dag_processor_manager        # Logs for Airflow's DAG processor
+│   └── scheduler                    # Logs for the Airflow scheduler
+│
+├── airflow.cfg                    # Airflow configuration file
+├── airflow.db                      # SQLite database for Airflow metadata (development only)
+├── airflow-webserver.pid            # Process ID file for the Airflow webserver
+├── webserver_config.py              # Airflow webserver configuration
+│
+├── README.md                       # Project documentation
+└── requirements.txt                 # Python dependencies
 ```
-
 
 ## Contributing
 
