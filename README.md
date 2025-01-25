@@ -25,7 +25,7 @@ This repository offers a sample Airflow project integrating a daily weather data
 
 To run this project:
 
-1. Follow the steps in the **Setup Instructions** section to configure your environment, database, and connections.
+1. Follow the steps in the Setup Instructions section in the specified order, as the sequence is crucial to properly configuring your environment, database, and connections.
 2. Download or clone the DAG and related codes in the exact same structure as described in the **Project Structure** section.
 3. Use the Airflow UI to trigger and monitor the pipeline execution.
 
@@ -64,16 +64,24 @@ Below are some screenshots showcasing the Airflow UI and the `weather_data_pipel
 │   Airflow DAG     │
 │ (weather_pipeline)│
 └──────┬────────────┘
-       │ (Cleanup & Transform)
+       │ (Tasks Execution)
        v
 ┌─────────────────┐
-│ DataProcessor   │
+│ Load Locations  │
+│  (CSV to JSON)  │
 └──────┬──────────┘
-       │ (Insert into DB)
+       │
        v
-┌─────────────────┐
-│ DatabaseEngine  │
-└──────┬──────────┘
+┌─────────────────────┐
+│ Fetch Weather Data  │
+│   (API Requests)    │
+└──────┬──────────────┘
+       │
+       v
+┌───────────────────┐
+│ Insert to DB      │
+│ (PostgreSQL Table)│
+└──────┬────────────┘
        │ (SQLAlchemy engine)
        v
 ┌─────────────────┐
