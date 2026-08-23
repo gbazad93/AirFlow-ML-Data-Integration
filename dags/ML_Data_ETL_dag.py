@@ -32,7 +32,7 @@ with DAG(
     dag_id="weather_data_pipeline",
     default_args=default_args,
     description="Fetch weather data and insert into PostgreSQL",
-    schedule_interval="0 23 * * *",
+    schedule="0 23 * * *",
     start_date=datetime(2025, 1, 4),
     catchup=False,
 ) as dag:
