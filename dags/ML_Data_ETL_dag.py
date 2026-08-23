@@ -33,7 +33,7 @@ with DAG(
     default_args=default_args,
     description="Fetch weather data and insert into PostgreSQL",
     schedule_interval="0 23 * * *",
-    start_date=datetime(2025, 01, 04),
+    start_date=datetime(2025, 1, 4),
     catchup=False,
 ) as dag:
     # -----------------------------------------------------------------
