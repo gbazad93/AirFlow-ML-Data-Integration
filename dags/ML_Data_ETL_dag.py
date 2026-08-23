@@ -78,7 +78,12 @@ with DAG(
             try:
                 response = requests.get(
                     base_url,
-                    params={"lat": lat, "lon": lon, "appid": api_key},
+                    params={
+                        "lat": lat,
+                        "lon": lon,
+                        "appid": api_key,
+                        "units": "metric",
+                    },
                     timeout=10,  # optional: set a timeout for requests
                 )
                 if response.status_code == 200:
