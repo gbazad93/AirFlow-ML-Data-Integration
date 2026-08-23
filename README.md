@@ -25,6 +25,15 @@ pytest tests -q
 
 Then work through the [Setup Instructions](#setup-instructions) to configure Airflow, PostgreSQL and a free OpenWeather API key, and trigger `weather_data_pipeline` from the Airflow UI.
 
+### Run the whole stack with Docker
+
+```bash
+cp .env.example .env    # add your free OpenWeather API key
+docker compose up
+```
+
+Airflow is then available at http://localhost:8080 (default login `airflow` / `airflow`) with `weather_data_pipeline` already registered and both connections pre-configured. Prefer to install everything yourself? Follow the [Setup Instructions](#setup-instructions) below.
+
 ## Table of Contents
 - [Quickstart](#quickstart)
 - [Overview](#overview)
