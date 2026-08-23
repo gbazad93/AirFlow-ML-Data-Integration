@@ -1,0 +1,78 @@
+# Minimal local stack for AirFlow-ML-Data-Integration.
+#
+#   cp .env.example .env      # then add your OpenWeather API key
+#   docker compose up
+#
+# Airflow UI: http://localhost:8080
+
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.10.4-python3.11
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    AIRFLOW_CONN_POSTGRES_WEATHER_DB: postgresql://airflow:airflow@postgres:5432/weather
+    AIRFLOW_CONN_OPENWEATHER_API_KEY: >-
+      {"conn_type": "http",
+       "host": "https://api.openweathermap.org/data/2.5/weather",
+       "extra": {"api_key": "${OPENWEATHER_API_KEY}"}}
+    _PIP_ADDITIONAL_REQUIREMENTS: apache-airflow-providers-postgres pandas requests
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - airflow-logs:/opt/airflow/logs
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/init-weather-db.sql:/docker-entrypoint-initdb.d/init-weather-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 5s
+      retries: 10
+    ports:
+      - "5432:5432"
+
+  airflow-init:
+    <<: *airflow-common
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db migrate
+        airflow users create \
+          --username "${AIRFLOW_ADMIN_USERNAME:-airflow}" \
+          --password "${AIRFLOW_ADMIN_PASSWORD:-airflow}" \
+          --firstname Air --lastname Flow \
+          --role Admin --email airflow@example.com
+    restart: on-failure
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: unless-stopped
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+volumes:
+  postgres-data:
+  airflow-logs:
