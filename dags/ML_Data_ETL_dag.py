@@ -140,33 +140,35 @@ with DAG(
                 "Invalid format for weather_data; expected a list of dictionaries."
             )
 
-        # Insert into PostgreSQL
+        # Insert every record in a single batch
         postgres_hook = PostgresHook(postgres_conn_id="postgres_weather_db")
-        insert_query = """
-            INSERT INTO weather (
-                city,
-                date,
-                temperature,
-                humidity,
-                wind_speed,
-                weather_condition
-            ) VALUES (%s, %s, %s, %s, %s, %s)
-        """
-
-        for record in weather_data:
-            postgres_hook.run(
-                insert_query,
-                parameters=(
-                    record["city"],
-                    record["date"],
-                    record["temperature"],
-                    record["humidity"],
-                    record["wind_speed"],
-                    record["weather_condition"],
-                ),
+        rows = [
+            (
+                record["city"],
+                record["date"],
+                record["temperature"],
+                record["humidity"],
+                record["wind_speed"],
+                record["weather_condition"],
             )
+            for record in weather_data
+        ]
 
-        logger.info("Weather data insertion completed.")
+        postgres_hook.insert_rows(
+            table="weather",
+            rows=rows,
+            target_fields=[
+                "city",
+                "date",
+                "temperature",
+                "humidity",
+                "wind_speed",
+                "weather_condition",
+            ],
+            commit_every=100,
+        )
+
+        logger.info("Inserted %s weather records.", len(rows))
 
     insert_weather_data_task = PythonOperator(
         task_id="insert_weather_data",
