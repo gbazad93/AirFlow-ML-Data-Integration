@@ -1,9 +1,32 @@
 # AirFlow-ML-Data-Integration
 
+[![CI](https://github.com/gbazad93/AirFlow-ML-Data-Integration/actions/workflows/ci.yml/badge.svg)](https://github.com/gbazad93/AirFlow-ML-Data-Integration/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
+[![Apache Airflow](https://img.shields.io/badge/apache%20airflow-2.10-017CEE.svg?logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
+
 This project demonstrates how to use [Apache Airflow](https://airflow.apache.org/) for orchestrating a daily ETL pipeline that fetches weather data from the free OpenWeather API, cleans and transforms the data, and stores it in a PostgreSQL database. It provides a scalable and reproducible example that can be extended for machine learning tasks such as training predictive models on weather-related datasets.
 
+## Quickstart
+
+```bash
+git clone https://github.com/gbazad93/AirFlow-ML-Data-Integration.git
+cd AirFlow-ML-Data-Integration
+
+python -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+# Verify the DAG parses - no API key or database required
+pytest tests -q
+```
+
+Then work through the [Setup Instructions](#setup-instructions) to configure Airflow, PostgreSQL and a free OpenWeather API key, and trigger `weather_data_pipeline` from the Airflow UI.
 
 ## Table of Contents
+- [Quickstart](#quickstart)
 - [Overview](#overview)
 - [Screenshots](#screenshots)
 - [Features](#features)
@@ -17,6 +40,7 @@ This project demonstrates how to use [Apache Airflow](https://airflow.apache.org
   - [API Connection Setup](./Setup/API-Connection-Setup.md)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
+- [License](#license)
 
 
 ## Overview
@@ -185,3 +209,7 @@ Contributions are welcome and appreciated! To contribute to this project, please
    Once your PR is approved, it will be merged into the main branch.
 
 **Note:** If you’re unsure about any aspect of your contribution or would like to propose an idea before coding, feel free to open an issue first. Constructive discussion helps ensure we move in a direction that benefits the entire community.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for the full text.
