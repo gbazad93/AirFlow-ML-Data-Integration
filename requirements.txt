@@ -1,0 +1,20 @@
+# Python dependencies for AirFlow-ML-Data-Integration
+#
+# Airflow should be installed with the official constraints file that matches
+# your Airflow and Python version, for example:
+#
+#   pip install -r requirements.txt \
+#     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.10.4/constraints-3.11.txt"
+
+# Orchestration
+apache-airflow==2.10.4
+apache-airflow-providers-postgres==5.14.0
+
+# ETL
+pandas==2.2.3
+requests==2.32.3
+psycopg2-binary==2.9.10
+
+# Development and testing
+pytest==8.3.4
+ruff==0.9.2
