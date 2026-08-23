@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Ruff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ruff
+        run: pip install ruff==0.9.2
+      - name: Lint dags and tests
+        run: ruff check dags tests
+
+  compile:
+    name: DAG syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Byte-compile the DAG folder
+        run: python -m compileall -q dags
+
+  test:
+    name: DAG integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install Airflow and test dependencies
+        run: |
+          CONSTRAINTS="https://raw.githubusercontent.com/apache/airflow/constraints-2.10.4/constraints-3.11.txt"
+          python -m pip install --upgrade pip
+          pip install "apache-airflow==2.10.4" --constraint "$CONSTRAINTS"
+          pip install apache-airflow-providers-postgres pandas requests pytest --constraint "$CONSTRAINTS"
+      - name: Run DAG integrity tests
+        env:
+          AIRFLOW_HOME: ${{ runner.temp }}/airflow
+          AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+        run: pytest tests -q
