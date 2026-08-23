@@ -4,7 +4,7 @@ import json
 import requests
 import pandas as pd
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from airflow import DAG
 from airflow.hooks.base import BaseHook
 from airflow.operators.python import PythonOperator
@@ -92,7 +92,7 @@ with DAG(
                     weather_data.append(
                         {
                             "city": city,
-                            "date": datetime.utcnow().date().isoformat(),
+                            "date": datetime.now(timezone.utc).date().isoformat(),
                             "temperature": data["main"]["temp"],
                             "humidity": data["main"]["humidity"],
                             "wind_speed": data["wind"]["speed"],
