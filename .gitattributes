@@ -1,0 +1,15 @@
+# Normalise line endings so Windows and Linux contributors produce identical diffs.
+* text=auto eol=lf
+
+*.py text
+*.md text
+*.yml text
+*.yaml text
+*.cfg text
+*.txt text
+*.sql text
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.db binary
